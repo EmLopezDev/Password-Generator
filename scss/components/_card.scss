@@ -19,6 +19,10 @@ li {
 
     @include u.text-preset-4;
 
+    @include u.breakpoint(small) {
+        @include u.text-preset-3;
+    }
+
     & input {
         appearance: none;
         outline: none;
@@ -27,6 +31,10 @@ li {
         width: u.rem(20);
         border-radius: 0;
         border: u.rem(2) solid var(--color-grey-200);
+
+        &:focus {
+            border-color: var(--color-green-200);
+        }
 
         &:hover {
             border-color: var(--color-green-200);
@@ -37,6 +45,10 @@ li {
 .card__header > h1 {
     color: var(--color-grey-600);
     @include u.text-preset-4;
+
+    @include u.breakpoint(small) {
+        @include u.text-preset-2;
+    }
 }
 
 .card__body {
@@ -47,12 +59,20 @@ li {
     max-width: u.rem(540);
     width: 100%;
 
+    @include u.breakpoint(small) {
+        gap: u.rem(24);
+    }
+
     &--results {
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: var(--color-grey-800);
         padding: u.rem(16);
+
+        @include u.breakpoint(small) {
+            padding: u.rem(16) u.rem(32);
+        }
 
         &-text {
             color: var(--color-grey-700);
@@ -64,14 +84,33 @@ li {
             align-items: center;
             gap: u.rem(8);
 
+            @include u.breakpoint(small) {
+                gap: u.rem(16);
+            }
+
             & span {
                 color: var(--color-green-200);
                 @include u.text-preset-4;
+
+                @include u.breakpoint(small) {
+                    @include u.text-preset-3;
+                }
             }
 
             & button {
                 background-color: transparent;
                 border: none;
+                cursor: pointer;
+
+                & svg {
+                    fill: var(--color-green-200);
+                }
+
+                &:hover {
+                    & svg {
+                        fill: var(--color-white);
+                    }
+                }
             }
         }
     }
@@ -79,6 +118,10 @@ li {
     &--selectors {
         background-color: var(--color-grey-800);
         padding: u.rem(16);
+
+        @include u.breakpoint(small) {
+            padding: u.rem(24) u.rem(32) u.rem(40);
+        }
     }
 
     &--form {
@@ -97,12 +140,20 @@ li {
                 color: var(--color-grey-200);
 
                 @include u.text-preset-4;
+
+                @include u.breakpoint(small) {
+                    @include u.text-preset-3;
+                }
             }
 
             & span {
                 color: var(--color-green-200);
 
                 @include u.text-preset-2;
+
+                @include u.breakpoint(small) {
+                    @include u.text-preset-1;
+                }
             }
         }
 
@@ -114,6 +165,11 @@ li {
             height: u.rem(8);
             accent-color: var(--color-green-200);
             background-color: var(--color-grey-850);
+
+            &:focus::-webkit-slider-thumb {
+                background-color: var(--color-grey-850);
+                border: u.rem(2) solid var(--color-green-200);
+            }
 
             &::-webkit-slider-thumb {
                 appearance: none;
@@ -151,6 +207,10 @@ li {
         padding: u.rem(14) u.rem(16);
         margin-bottom: u.rem(32);
 
+        @include u.breakpoint(small) {
+            padding: u.rem(16) u.rem(32);
+        }
+
         & > span {
             color: var(--color-grey-600);
 
@@ -185,17 +245,24 @@ li {
         justify-content: center;
         align-items: center;
         color: var(--color-grey-800);
-        padding: u.rem(16) u.rem(104);
         border-radius: 0;
         border: none;
         background-color: var(--color-green-200);
 
         @include u.text-preset-4;
 
-        & img {
-            width: u.rem(12);
-            height: u.rem(12);
+        & svg {
             margin-left: u.rem(16);
+        }
+
+        &:hover {
+            color: var(--color-green-200);
+            background-color: transparent;
+            border: u.rem(2) solid var(--color-green-200);
+
+            & svg {
+                fill: var(--color-green-200);
+            }
         }
     }
 }
