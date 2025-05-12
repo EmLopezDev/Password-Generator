@@ -1,7 +1,7 @@
 @use "functions" as f;
 
 :root {
-    --font-family: "Jetbrains Mono";
+    --font-family: "JetBrains Mono";
 }
 
 $font-size-xsmall: 16;
@@ -25,7 +25,7 @@ $letter-spacing-none: 0;
 @mixin text-preset-2 {
     font-size: f.rem($font-size-medium);
     font-weight: $font-weight-bold;
-    line-height: u.rem($line-height-medium);
+    line-height: f.rem($line-height-medium);
     letter-spacing: $letter-spacing-none;
 }
 

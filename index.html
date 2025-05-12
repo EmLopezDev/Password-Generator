@@ -33,14 +33,14 @@
         <title>Password generator app</title>
     </head>
     <body>
-        <header>
+        <header class="card__header">
             <h1>Password Generator</h1>
         </header>
-        <main>
-            <section>
-                <span>P4$5W0rD!</span>
-                <div>
-                    <span>COPIED</span>
+        <main class="card__body">
+            <section class="card__body--results">
+                <span class="card__body--results-text">P4$5W0rD!</span>
+                <div class="card__body--results-button">
+                    <span id="copied"></span>
                     <button>
                         <img
                             src="./assets/images/icon-copy.svg"
@@ -49,66 +49,76 @@
                     </button>
                 </div>
             </section>
-            <section>
-                <form>
+            <section class="card__body--selectors">
+                <form class="card__body--form">
                     <fieldset>
-                        <div>
+                        <div class="card__body--form-range-label">
                             <label for="length">Character Length</label>
                             <span>0</span>
                         </div>
                         <input
+                            class="card__body--form-range-input"
                             type="range"
-                            name=""
                             id="length"
+                            step="1"
+                            min="5"
+                            max="30"
+                            value="5"
                         />
                     </fieldset>
                     <fieldset>
-                        <div>
-                            <input
-                                type="checkbox"
-                                id="include-uppercase"
-                            />
-                            <label for="include-uppercase">
-                                Include Uppercase Letters
-                            </label>
-                        </div>
-                        <div>
-                            <input
-                                type="checkbox"
-                                id="include-lowercase"
-                            />
-                            <label for="include-lowercase">
-                                Include Lowercase Letters
-                            </label>
-                        </div>
-                        <div>
-                            <input
-                                type="checkbox"
-                                id="include-numbers"
-                            />
-                            <label for="include-numbers">Include Numbers</label>
-                        </div>
-                        <div>
-                            <input
-                                type="checkbox"
-                                id="include-symbols"
-                            />
-                            <label for="include-symbols">Include Symbols</label>
-                        </div>
+                        <ul>
+                            <li>
+                                <input
+                                    type="checkbox"
+                                    id="include-uppercase"
+                                />
+                                <label for="include-uppercase">
+                                    Include Uppercase Letters
+                                </label>
+                            </li>
+                            <li>
+                                <input
+                                    type="checkbox"
+                                    id="include-lowercase"
+                                />
+                                <label for="include-lowercase">
+                                    Include Lowercase Letters
+                                </label>
+                            </li>
+                            <li>
+                                <input
+                                    type="checkbox"
+                                    id="include-numbers"
+                                />
+                                <label for="include-numbers">
+                                    Include Numbers
+                                </label>
+                            </li>
+                            <li>
+                                <input
+                                    type="checkbox"
+                                    id="include-symbols"
+                                />
+                                <label for="include-symbols">
+                                    Include Symbols
+                                </label>
+                            </li>
+                        </ul>
                     </fieldset>
                 </form>
-                <div>
-                    <span>Strength</span>
+                <div class="card__body--strength">
+                    <span>STRENGTH</span>
                     <div>
-                        <span>MEDIUM</span>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
+                        <span class="card__body--strength-text"></span>
+                        <span class="card__body--strength-gauge"></span>
+                        <span class="card__body--strength-gauge"></span>
+                        <span class="card__body--strength-gauge"></span>
+                        <span class="card__body--strength-gauge"></span>
                     </div>
                 </div>
-                <button>
-                    Generate
+                <button class="card__body--button">
+                    GENERATE
                     <img
                         src="./assets/images/icon-arrow-right.svg"
                         alt=""
