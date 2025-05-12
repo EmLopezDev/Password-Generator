@@ -1,0 +1,20 @@
+:root {
+    --color-white: hsl(0, 100%, 100%);
+    --color-black: hsl(0, 0%, 0%);
+    --color-grey-200: hsl(252, 11%, 91%);
+    --color-grey-600: hsl(251, 9%, 53%);
+    --color-grey-700: hsl(248, 5%, 34%);
+    --color-grey-800: hsl(248, 10%, 15%);
+    --color-grey-850: hsl(248, 15%, 11%);
+    --color-grey-900: hsl(248, 17%, 9%);
+    --color-grey-950: hsl(255, 22%, 4%);
+    --color-green-200: hsl(127, 100%, 82%);
+    --color-yellow-300: hsl(42, 91%, 68%);
+    --color-orange-400: hsl(13, 95%, 66%);
+    --color-red-500: hsl(0, 91%, 63%);
+    --color-gradient-1: linear-gradient(
+        to right,
+        hsl(248, 17%, 9%),
+        hsl(255, 22%, 4%)
+    );
+}

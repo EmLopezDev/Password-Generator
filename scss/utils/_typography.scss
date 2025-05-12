@@ -1,0 +1,44 @@
+@use "functions" as f;
+
+:root {
+    --font-family: "Jetbrains Mono";
+}
+
+$font-size-xsmall: 16;
+$font-size-small: 18;
+$font-size-medium: 24;
+$font-size-large: 32;
+$font-weight-bold: 700;
+$line-height-xsmall: 20;
+$line-height-small: 24;
+$line-height-medium: 32;
+$line-height-large: 42;
+$letter-spacing-none: 0;
+
+@mixin text-preset-1 {
+    font-size: f.rem($font-size-large);
+    font-weight: $font-weight-bold;
+    line-height: f.rem($line-height-large);
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-2 {
+    font-size: f.rem($font-size-medium);
+    font-weight: $font-weight-bold;
+    line-height: u.rem($line-height-medium);
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-3 {
+    font-size: f.rem($font-size-small);
+    font-weight: $font-weight-bold;
+    line-height: f.rem($line-height-small);
+    letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-4 {
+    font-size: f.rem($font-size-xsmall);
+    font-weight: $font-weight-bold;
+    line-height: f.rem($line-height-xsmall);
+    letter-spacing: $letter-spacing-none;
+}
