@@ -39,6 +39,12 @@ li {
         &:hover {
             border-color: var(--color-green-200);
         }
+
+        &:checked {
+            content: url(/assets/images/icon-check.svg);
+            border-color: var(--color-green-200);
+            background-color: var(--color-green-200);
+        }
     }
 }
 
@@ -107,6 +113,13 @@ li {
                 }
 
                 &:hover {
+                    & svg {
+                        fill: var(--color-white);
+                    }
+                }
+
+                &:focus {
+                    outline: none;
                     & svg {
                         fill: var(--color-white);
                     }
@@ -259,6 +272,17 @@ li {
             color: var(--color-green-200);
             background-color: transparent;
             border: u.rem(2) solid var(--color-green-200);
+
+            & svg {
+                fill: var(--color-green-200);
+            }
+        }
+
+        &:focus {
+            color: var(--color-green-200);
+            background-color: transparent;
+            border: u.rem(2) solid var(--color-green-200);
+            outline: none;
 
             & svg {
                 fill: var(--color-green-200);
