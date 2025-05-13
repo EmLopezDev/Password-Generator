@@ -82,7 +82,11 @@ li {
 
         &-text {
             color: var(--color-grey-700);
-            @include u.text-preset-2;
+            @include u.text-preset-3;
+
+            @include u.breakpoint(small) {
+                @include u.text-preset-2;
+            }
         }
 
         &-button {

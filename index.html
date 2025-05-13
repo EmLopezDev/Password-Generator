@@ -49,7 +49,7 @@
                     P4$5W0rD!
                 </span>
                 <div class="card__body--results-button">
-                    <span id="copy-text"></span>
+                    <span id="copy-text">COPIED</span>
                     <button id="copy-button">
                         <svg
                             width="21"
@@ -76,7 +76,7 @@
                             id="length-range"
                             step="5"
                             min="0"
-                            max="30"
+                            max="25"
                             value="0"
                         />
                     </fieldset>
@@ -87,6 +87,8 @@
                                     type="checkbox"
                                     id="include-uppercase"
                                     value="uppercase"
+                                    name="checkbox"
+                                    required
                                 />
                                 <label for="include-uppercase">
                                     Include Uppercase Letters
@@ -97,6 +99,7 @@
                                     type="checkbox"
                                     id="include-lowercase"
                                     value="lowercase"
+                                    name="checkbox"
                                 />
                                 <label for="include-lowercase">
                                     Include Lowercase Letters
@@ -107,6 +110,7 @@
                                     type="checkbox"
                                     id="include-numbers"
                                     value="numbers"
+                                    name="checkbox"
                                 />
                                 <label for="include-numbers">
                                     Include Numbers
@@ -117,6 +121,7 @@
                                     type="checkbox"
                                     id="include-symbols"
                                     value="symbols"
+                                    name="checkbox"
                                 />
                                 <label for="include-symbols">
                                     Include Symbols
