@@ -30,6 +30,10 @@
             rel="stylesheet"
             href="./dist/styles.css"
         />
+        <script
+            defer
+            src="./js/main.js"
+        ></script>
         <title>Password generator app</title>
     </head>
     <body>
@@ -38,10 +42,15 @@
         </header>
         <main class="card__body">
             <section class="card__body--results">
-                <span class="card__body--results-text">P4$5W0rD!</span>
+                <span
+                    id="result"
+                    class="card__body--results-text"
+                >
+                    P4$5W0rD!
+                </span>
                 <div class="card__body--results-button">
-                    <span id="copied"></span>
-                    <button>
+                    <span id="copy-text"></span>
+                    <button id="copy-button">
                         <svg
                             width="21"
                             height="24"
@@ -58,17 +67,17 @@
                 <form class="card__body--form">
                     <fieldset>
                         <div class="card__body--form-range-label">
-                            <label for="length">Character Length</label>
-                            <span>0</span>
+                            <label for="length-range">Character Length</label>
+                            <span id="length-number">0</span>
                         </div>
                         <input
                             class="card__body--form-range-input"
                             type="range"
-                            id="length"
-                            step="1"
-                            min="5"
+                            id="length-range"
+                            step="5"
+                            min="0"
                             max="30"
-                            value="5"
+                            value="0"
                         />
                     </fieldset>
                     <fieldset>
@@ -77,7 +86,7 @@
                                 <input
                                     type="checkbox"
                                     id="include-uppercase"
-                                    checked
+                                    value="uppercase"
                                 />
                                 <label for="include-uppercase">
                                     Include Uppercase Letters
@@ -87,6 +96,7 @@
                                 <input
                                     type="checkbox"
                                     id="include-lowercase"
+                                    value="lowercase"
                                 />
                                 <label for="include-lowercase">
                                     Include Lowercase Letters
@@ -96,6 +106,7 @@
                                 <input
                                     type="checkbox"
                                     id="include-numbers"
+                                    value="numbers"
                                 />
                                 <label for="include-numbers">
                                     Include Numbers
@@ -105,6 +116,7 @@
                                 <input
                                     type="checkbox"
                                     id="include-symbols"
+                                    value="symbols"
                                 />
                                 <label for="include-symbols">
                                     Include Symbols
@@ -116,14 +128,20 @@
                 <div class="card__body--strength">
                     <span>STRENGTH</span>
                     <div>
-                        <span class="card__body--strength-text"></span>
+                        <span
+                            id="strength-text"
+                            class="card__body--strength-text"
+                        ></span>
                         <span class="card__body--strength-gauge"></span>
                         <span class="card__body--strength-gauge"></span>
                         <span class="card__body--strength-gauge"></span>
                         <span class="card__body--strength-gauge"></span>
                     </div>
                 </div>
-                <button class="card__body--button">
+                <button
+                    id="generate-button"
+                    class="card__body--button"
+                >
                     GENERATE
                     <svg
                         width="12"
