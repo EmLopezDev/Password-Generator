@@ -272,7 +272,7 @@ li {
             margin-left: u.rem(16);
         }
 
-        &:hover {
+        &:hover:not(:disabled) {
             color: var(--color-green-200);
             background-color: transparent;
             border: u.rem(2) solid var(--color-green-200);
@@ -290,6 +290,16 @@ li {
 
             & svg {
                 fill: var(--color-green-200);
+            }
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            color: var(--color-grey-700);
+            background-color: var(--color-grey-850);
+
+            & svg {
+                fill: var(--color-grey-700);
             }
         }
     }
