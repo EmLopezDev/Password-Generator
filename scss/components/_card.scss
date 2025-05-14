@@ -99,7 +99,10 @@ li {
             }
 
             & span {
+                opacity: 0;
                 color: var(--color-green-200);
+                transition: opacity 0.3s linear;
+
                 @include u.text-preset-4;
 
                 @include u.breakpoint(small) {
@@ -116,7 +119,7 @@ li {
                     fill: var(--color-green-200);
                 }
 
-                &:hover {
+                &:hover:not(:disabled) {
                     & svg {
                         fill: var(--color-white);
                     }
@@ -126,6 +129,14 @@ li {
                     outline: none;
                     & svg {
                         fill: var(--color-white);
+                    }
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+
+                    & svg {
+                        fill: var(--color-grey-700);
                     }
                 }
             }
@@ -241,6 +252,7 @@ li {
 
         &-text {
             color: var(--color-grey-200);
+            text-transform: uppercase;
             margin-right: u.rem(16);
 
             @include u.text-preset-3;
@@ -303,4 +315,24 @@ li {
             }
         }
     }
+}
+
+.very-weak {
+    border: u.rem(2) solid var(--color-red-500);
+    background-color: var(--color-red-500);
+}
+
+.weak {
+    border: u.rem(2) solid var(--color-orange-400);
+    background-color: var(--color-orange-400);
+}
+
+.medium {
+    border: u.rem(2) solid var(--color-yellow-300);
+    background-color: var(--color-yellow-300);
+}
+
+.strong {
+    border: u.rem(2) solid var(--color-green-200);
+    background-color: var(--color-green-200);
 }

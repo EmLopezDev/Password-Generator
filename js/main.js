@@ -23,14 +23,29 @@ const passwordCharacters = {
     symbols: "~`!@#$%^&*()_-+={[}]|\\:;\"'<,>.?/",
 };
 
-const isChecked = () => {
+const isChecked = (obj) => {
+    return Object.keys(obj).filter((key) => obj[key] === true);
+};
+
+const canGenerate = () => {
+    if (isChecked(checkedOptions).length && lengthValue) {
+        generateButton.removeAttribute("disabled");
+        return true;
+    } else {
+        generateButton.setAttribute("disabled", true);
+        return false;
+    }
+};
+
+const checkboxValue = () => {
     checkboxes.forEach((cb) => {
         checkedOptions[`${cb.value}`] = cb.checked;
     });
+    canGenerate();
 };
 
 checkboxes.forEach((cb) => {
-    cb.addEventListener("input", isChecked);
+    cb.addEventListener("input", checkboxValue);
 });
 
 const randomNumber = (max) => {
@@ -39,9 +54,7 @@ const randomNumber = (max) => {
 
 const randomCharacter = () => {
     finalPW = "";
-    const checked = Object.keys(checkedOptions).filter(
-        (key) => checkedOptions[key] === true
-    );
+    const checked = isChecked(checkedOptions);
     while (finalPW.length < lengthValue) {
         const randomIndex = randomNumber(checked.length);
         const randomCategory = checked[randomIndex];
@@ -49,6 +62,59 @@ const randomCharacter = () => {
         const randomCharAt = randomNumber(categoryValues.length + 1);
         const randomCharacter = categoryValues.charAt(randomCharAt);
         finalPW += randomCharacter;
+    }
+};
+
+const copyText = async () => {
+    try {
+        await navigator.clipboard.writeText(finalPW);
+        copyTextSpan.style.opacity = "1";
+        setTimeout(() => {
+            copyTextSpan.style.opacity = "0";
+        }, 2000);
+    } catch (err) {
+        console.error("FAILED");
+    }
+};
+
+const canCopy = () => {
+    if (finalPW) {
+        copyButton.removeAttribute("disabled");
+    } else {
+        copyButton.setAttribute("disabled", true);
+    }
+};
+
+const resetStrength = () => {
+    strengthGauges.forEach((gauge) => {
+        gauge.className = "card__body--strength-gauge";
+    });
+};
+
+const changeGauges = (length, strength) => {
+    resetStrength();
+    const gauges = Array.from(strengthGauges);
+    const gauge = gauges.splice(0, length);
+    gauge.forEach((g) => {
+        g.classList.add(strength === "very weak" ? "very-weak" : strength);
+    });
+    strengthTextSpan.textContent = `${strength}`;
+};
+
+const finalPwStrength = () => {
+    const checkedLength = isChecked(checkedOptions).length;
+    if (lengthValue < 15 && checkedLength === 1) {
+        changeGauges(1, "very weak");
+    } else if (lengthValue < 15 && checkedLength === 2) {
+        changeGauges(2, "weak");
+    } else if (lengthValue < 15 && checkedLength > 2) {
+        changeGauges(3, "medium");
+    } else if (lengthValue > 15 && checkedLength === 1) {
+        changeGauges(2, "weak");
+    } else if (lengthValue > 15 && checkedLength === 2) {
+        changeGauges(3, "medium");
+    } else {
+        changeGauges(4, "strong");
     }
 };
 
@@ -62,10 +128,16 @@ lengthRange.addEventListener("input", (e) => {
     const progress = wholeNumber.toFixed(0);
 
     lengthRange.style.background = `linear-gradient(to right, var(--color-green-200) ${progress}%, var(--color-grey-850) ${progress}%)`;
+
+    canGenerate();
 });
 
 generateButton.addEventListener("click", () => {
     randomCharacter();
+    canCopy();
+    finalPwStrength();
     resultSpan.style.color = "var(--color-grey-200)";
     resultSpan.textContent = finalPW;
 });
+
+copyButton.addEventListener("click", copyText);
