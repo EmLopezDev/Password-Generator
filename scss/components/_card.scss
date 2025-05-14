@@ -41,7 +41,7 @@ li {
         }
 
         &:checked {
-            content: url(/assets/images/icon-check.svg);
+            content: url(../assets/images/icon-check.svg);
             border-color: var(--color-green-200);
             background-color: var(--color-green-200);
         }
