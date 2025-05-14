@@ -98,7 +98,7 @@ const changeGauges = (length, strength) => {
     gauge.forEach((g) => {
         g.classList.add(strength === "very weak" ? "very-weak" : strength);
     });
-    strengthTextSpan.textContent = `${strength}`;
+    strengthTextSpan.textContent = strength;
 };
 
 const finalPwStrength = () => {
@@ -122,7 +122,7 @@ lengthRange.addEventListener("input", (e) => {
     const rangeValue = e.target.value;
     lengthValue = Number(rangeValue);
     lengthNumber.textContent = rangeValue;
-    // Calculate percentage of range and turns it into a whole number
+    // Calculate percentage of range and turns it into a float
     const wholeNumber = (rangeValue / lengthRange.max) * 100;
     // Removes decimals
     const progress = wholeNumber.toFixed(0);
