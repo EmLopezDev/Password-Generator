@@ -109,9 +109,9 @@ const finalPwStrength = () => {
         changeGauges(2, "weak");
     } else if (lengthValue < 15 && checkedLength > 2) {
         changeGauges(3, "medium");
-    } else if (lengthValue > 15 && checkedLength === 1) {
+    } else if (lengthValue >= 15 && checkedLength === 1) {
         changeGauges(2, "weak");
-    } else if (lengthValue > 15 && checkedLength === 2) {
+    } else if (lengthValue >= 15 && checkedLength === 2) {
         changeGauges(3, "medium");
     } else {
         changeGauges(4, "strong");
